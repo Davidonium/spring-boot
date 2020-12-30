@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 
 import org.springframework.boot.jdbc.AbstractDataSourceInitializer;
 import org.springframework.boot.jdbc.DataSourceInitializationMode;
+import org.springframework.session.jdbc.config.annotation.SpringSessionDataSource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 
@@ -33,7 +34,7 @@ public class JdbcSessionDataSourceInitializer extends AbstractDataSourceInitiali
 
 	private final JdbcSessionProperties properties;
 
-	public JdbcSessionDataSourceInitializer(DataSource dataSource, ResourceLoader resourceLoader,
+	public JdbcSessionDataSourceInitializer(@SpringSessionDataSource DataSource dataSource, ResourceLoader resourceLoader,
 			JdbcSessionProperties properties) {
 		super(dataSource, resourceLoader);
 		Assert.notNull(properties, "JdbcSessionProperties must not be null");
